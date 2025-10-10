@@ -14,7 +14,6 @@ export async function POST(request: Request) {
         try {
           // 使用异步生成器获取流式数据
           for await (const chunk of chatStreamHandle(message)) {
-            console.log(chunk,'chunk')
             // 将每个数据块编码为SSE格式
             const data = `data: ${JSON.stringify(chunk)}\n\n`;
             controller.enqueue(new TextEncoder().encode(data));
