@@ -8,7 +8,7 @@ export async function POST(request: Request) {
       return new Response("消息内容不能为空", { status: 400 });
     }
 
-    // 创建流式响应
+    // 创建流式响应,
     const stream = new ReadableStream({
       async start(controller) {
         try {
